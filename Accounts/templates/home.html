@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <title>Home</title>
+</head>
+
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success font"> {{message}} </div>
+    {% endfor %}
+    {% endif %}
+    <div class="text-center mt-5">
+        {% if user.is_authenticated  %}
+        <h1 class="text-success font">
+            <b>You are successfully Logged in</b>
+        </h1>
+        <a class="btn btn-danger font" href="/logout">
+            <b>Logout</b>
+        </a>
+        {% else %}
+        <h1 class="text-success font">
+            <b>You are an unauthorized user</b>
+        </h1>
+        <a class="btn btn-danger font" href="/login">
+            <b>Login</b>
+        </a>
+        <a class="btn btn-danger font" href="/registration">
+            <b>Register</b>
+        </a>
+        {% endif %}
+    </div>
+</body>
+
+</html>
